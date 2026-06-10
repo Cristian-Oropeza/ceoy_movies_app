@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AppTheme {
-  ThemeData getTheme() => ThemeData(colorSchemeSeed: Colors.red);
+class AppTheme{
+  ThemeData get lightTheme => ThemeData(
+    colorSchemeSeed: Colors.red,
+  );
 }
