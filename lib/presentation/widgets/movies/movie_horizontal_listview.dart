@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ceoy_movies_app/domain/domain.dart';
+import 'package:go_router/go_router.dart';
 
 class MovieHorizontalListview extends StatefulWidget {
   final List<Movie> movies;
@@ -115,7 +116,11 @@ class _Slide extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: GestureDetector(
-                child: Image.network(movie.posterPath, fit: BoxFit.cover),
+                onTap:() => context.push('/home/0/movie/${movie.id}'),
+                child: Image.network(
+                  height: 220,
+                  movie.posterPath, 
+                  fit: BoxFit.cover),
               ),
             ),
           ),

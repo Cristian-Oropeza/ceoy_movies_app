@@ -22,4 +22,26 @@ class MovieMapper {
     voteAverage: movieDb.voteAverage,
     voteCount: movieDb.voteCount
   );
+
+  static Movie movieDetailToEntity( MovieDb movieDb ) => Movie(
+    adult: movieDb.adult,
+    backdropPath: (movieDb.backdropPath.isNotEmpty)
+      ? 'https://image.tmdb.org/t/p/w500${ movieDb.backdropPath }'
+      : '',
+    genreIds: movieDb.genreIds,
+    id: movieDb.id,
+    originalLanguage: movieDb.originalLanguage,
+    originalTitle: movieDb.originalTitle,
+    overview: movieDb.overview,
+    popularity: movieDb.popularity,
+    posterPath: (movieDb.posterPath.isNotEmpty)
+      ? 'https://image.tmdb.org/t/p/w500${ movieDb.posterPath }'
+      : '',
+    releaseDate: movieDb.releaseDate,
+    title: movieDb.title,
+    video: movieDb.video,
+    voteAverage: movieDb.voteAverage,
+    voteCount: movieDb.voteCount
+  );
+  
 }
