@@ -36,8 +36,12 @@ class _HomeViewState extends ConsumerState<HomeView> {
           delegate: SliverChildBuilderDelegate((context, index) {
             return Column(
               children: [
-                MoviesSlideshow(movies: []),
-                Text('data'),
+                MoviesSlideshow(movies: nowPlayingMovies),
+                MovieHorizontalListview(
+                  movies: nowPlayingMovies,
+                  title: 'En cines',
+                  subtitle: 'A partir de',
+                ),
               ],
             );
           }, childCount: 1),

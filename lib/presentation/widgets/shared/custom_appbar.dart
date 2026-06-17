@@ -20,7 +20,7 @@ class CustomAppbar extends StatelessWidget {
             children: [
               Icon(Icons.movie_outlined, color: colors.primary),
               SizedBox(width: 10),
-              Text('Peliculas LHD', style: titleStyle),
+              Text('Peliculas Ceoy', style: titleStyle),
               Spacer(),
               IconButton(onPressed: () {}, icon: Icon(Icons.search)),
             ],
