@@ -1,5 +1,6 @@
 import 'package:ceoy_movies_app/config/config.dart';
 import 'package:ceoy_movies_app/infrastructure/mappers/movie_mapper.dart';
+import 'package:ceoy_movies_app/infrastructure/models/moviedb/moviedb_detail.dart';
 import 'package:ceoy_movies_app/infrastructure/models/moviedb/moviedb_response.dart';
 import 'package:dio/dio.dart';
 import '../../domain/domain.dart';
@@ -32,7 +33,7 @@ final movieDbResponse = MovieDbResponse.fromJson(response.data);
     final response = await dio.get('/movie/$id');
     if (response.statusCode != 200) throw Exception('Movie with id $id not found');
 
-    final detail = MovieDb.fromJson(response.data);
+    final detail = MovieDbDetail.fromJson(response.data);
     final Movie movie = MovieMapper.movieDetailToEntity(detail);
     return movie;
   }
