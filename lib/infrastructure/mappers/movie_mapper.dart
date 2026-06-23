@@ -8,7 +8,7 @@ class MovieMapper {
     backdropPath: (movieDb.backdropPath.isNotEmpty)
       ? 'https://image.tmdb.org/t/p/w500${ movieDb.backdropPath }'
       : '',
-    genreIds: movieDb.genreIds,
+    genreIds: movieDb.genreIds.map((e) => e.toString()).toList(),
     id: movieDb.id,
     originalLanguage: movieDb.originalLanguage,
     originalTitle: movieDb.originalTitle,
@@ -24,25 +24,25 @@ class MovieMapper {
     voteCount: movieDb.voteCount
   );
 
-  static Movie movieDetailToEntity( MovieDbDetail detail ) => Movie(
-    adult: detail.adult,
-    backdropPath: (detail.backdropPath.isNotEmpty)
-      ? 'https://image.tmdb.org/t/p/w500${ detail.backdropPath }'
+  static Movie movieDetailToEntity( MovieDbDetail moviedb ) => Movie(
+    adult: moviedb.adult,
+    backdropPath: (moviedb.backdropPath.isNotEmpty)
+      ? 'https://image.tmdb.org/t/p/w500${ moviedb.backdropPath }'
       : '',
-    genreIds: detail.genres.map((g) => g.id).toList(),
-    id: detail.id,
-    originalLanguage: detail.originalLanguage,
-    originalTitle: detail.originalTitle,
-    overview: detail.overview,
-    popularity: detail.popularity,
-    posterPath: (detail.posterPath.isNotEmpty)
-      ? 'https://image.tmdb.org/t/p/w500${ detail.posterPath }'
+    genreIds: moviedb.genres.map( (e) => e.name).toList(),
+    id: moviedb.id,
+    originalLanguage: moviedb.originalLanguage,
+    originalTitle: moviedb.originalTitle,
+    overview: moviedb.overview,
+    popularity: moviedb.popularity,
+    posterPath: (moviedb.posterPath.isNotEmpty)
+      ? 'https://image.tmdb.org/t/p/w500${ moviedb.posterPath }'
       : '',
-    releaseDate: detail.releaseDate,
-    title: detail.title,
-    video: detail.video,
-    voteAverage: detail.voteAverage,
-    voteCount: detail.voteCount
+    releaseDate: moviedb.releaseDate,
+    title: moviedb.title,
+    video: moviedb.video,
+    voteAverage: moviedb.voteAverage,
+    voteCount: moviedb.voteCount
   );
 
 }

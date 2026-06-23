@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:ceoy_movies_app/config/helpers/human_formats.dart';
+import 'package:ceoy_movies_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ceoy_movies_app/domain/domain.dart';
@@ -69,7 +70,8 @@ class _MovieDetails extends StatelessWidget {
         _TitleAndOverview(movie: movie),
 
         //TODO Generos de la pelicula
-
+        MovieGenres(movie: movie)
+        
         //TODO Actores de la pelicula
 
         //TODO Trailers de la pelicula
@@ -117,6 +119,8 @@ class _TitleAndOverview extends StatelessWidget {
                   movie.overview.isNotEmpty
                   ? movie.overview
                   : 'Sin Información'),
+
+                MovieRating(voteAverage: movie.voteAverage),
 
                 Row(
                   children: [

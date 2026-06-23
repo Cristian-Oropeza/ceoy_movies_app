@@ -36,3 +36,4 @@ class MainApp extends StatelessWidget {
 //  add: Uso de Slideshow, ListView y cambios de estilos
 //  fix: Corrección del listado de pelicular (horizontal) y configuración con go_router
 //  fix: Construcción del detalle de la pelicula
+//  
