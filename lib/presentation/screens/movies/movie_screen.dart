@@ -21,7 +21,9 @@ class _MovieScreenState extends ConsumerState<MovieScreen> {
   @override
   void initState() {
     super.initState();
+
     ref.read(movieInfoProvider.notifier).loadMovie(widget.movieId);
+    ref.read(actorsByMovieProvider.notifier).loadActors(widget.movieId);
   }
 
   @override
@@ -70,9 +72,10 @@ class _MovieDetails extends StatelessWidget {
         _TitleAndOverview(movie: movie),
 
         //TODO Generos de la pelicula
-        MovieGenres(movie: movie)
+        MovieGenres(movie: movie),
         
         //TODO Actores de la pelicula
+        ActorsByMovie(movieId: movie.id.toString()),
 
         //TODO Trailers de la pelicula
 

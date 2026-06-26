@@ -1,7 +1,9 @@
 import 'package:ceoy_movies_app/config/config.dart';
+import 'package:ceoy_movies_app/infrastructure/infrastuctura.dart';
 import 'package:ceoy_movies_app/infrastructure/mappers/movie_mapper.dart';
 import 'package:ceoy_movies_app/infrastructure/models/moviedb/moviedb_detail.dart';
 import 'package:ceoy_movies_app/infrastructure/models/moviedb/moviedb_response.dart';
+import 'package:ceoy_movies_app/infrastructure/models/moviedb_credits.dart';
 import 'package:dio/dio.dart';
 import '../../domain/domain.dart';
 
@@ -38,6 +40,18 @@ final movieDbResponse = MovieDbResponse.fromJson(response.data);
     return movie;
   }
 
+@override
+  Future<List<Actor>> getActorsByMovie(String movieId) async {
+    final response = await dio.get('/movie/$movieId/credits');
+
+    final credits = MovieDbCredits.fromJson(response.data);
+
+    final List<Actor> actors = credits.cast
+        .map((cast) => ActorMapper.castToEntity(cast))
+        .toList();
+
+    return actors;
+  }
 
   @override
   Future<List<Movie>> getPopular({int page = 1}) {

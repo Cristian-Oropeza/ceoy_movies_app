@@ -1,6 +1,9 @@
 import 'package:ceoy_movies_app/domain/domain.dart';
+import 'package:ceoy_movies_app/domain/entities/actor.dart';
 
 abstract class MoviesDatasource {
+  Future<List<Actor>> getActorsByMovie (String movieId);
+
   Future<List<Movie>> getNowPlaying({ int page = 1 });
   Future<List<Movie>> getPopular({ int page = 1 });
   Future<List<Movie>> getUpcoming({ int page = 1 });
